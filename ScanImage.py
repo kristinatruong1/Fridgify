@@ -1,8 +1,10 @@
 import cv2
 import cvlib as cv
+import pymongo
 from cvlib.object_detection import draw_bbox
 from gtts import gTTS
 from playsound import playsound
+from pymongo import MongoClient
 
 # access camera
 video = cv2.VideoCapture(0)
@@ -23,3 +25,9 @@ while True:
         break
 
 print(labels)
+
+# connectng db
+client = MongoClient("mongodb+srv://kristinatruongkyt:<H1p3uuoCy8p37d5F>@cluster0.g81sekr.mongodb.net/")
+db = client.get_database('fridgifyRecipeData')
+records = db.Recipes
+records.count_documents({})
