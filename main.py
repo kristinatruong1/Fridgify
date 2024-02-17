@@ -1,9 +1,16 @@
 import ScanImage
+import recipes
+from playsound import playsound
 
 # take photo/get photo
 items = ScanImage.scan()
 
-# process photo/ image classifcation
+# filter items and find recipes
+filtered = recipes.filterFood(items)
+ingredients =  "Your ingredients are " + " ".join(filtered)
+ScanImage.speech(ingredients)
+recipeList = recipes.getRecipes(filtered)
+print(recipes)
 
 # output text 
 # prompt additional ingredients

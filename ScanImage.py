@@ -7,6 +7,13 @@ from playsound import playsound
 from pymongo import MongoClient
 import api
 
+# speech
+def speech(words):
+    language = "en"
+    output = gTTS(text=words, lang=language, slow=False)
+    output.save("./sounds/found_items.mp3")
+    playsound("./sounds/found_items.mp3")
+
 # access camera
 def scan():
     video = cv2.VideoCapture(0)
@@ -26,4 +33,5 @@ def scan():
         if cv2.waitKey(1) & 0xFF == ord("q"): #click q to break out loop/window
             video.release()
             break
+    cv2.destroyAllWindows()
     return labels
