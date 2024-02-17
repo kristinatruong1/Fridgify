@@ -1,15 +1,17 @@
 import pymongo
 from pymongo import MongoClient
+from api import MONGO_URL
+
 
 # connectng db
-client = MongoClient("mongodb+srv://kristinatruongkyt:H1p3uuoCy8p37d5F@cluster0.g81sekr.mongodb.net/fridgifyRecipeData")
+client = MongoClient(MONGO_URL)
 db = client.get_database('fridgifyRecipeData')
 records = db.Recipes
-print(records.count_documents({}))
 
-ingredients = ["vinegar"]
+ingredients = ["1/2 c. vinegar"]
 
-pattern = ".*" + ingredients[0] + ".*"
+pattern = "." + ingredients[0] + "."
 query = {'ingredients': {'$regex': pattern, '$options': 'i'}}
 
 print(list(records.find(query)))
+print("\n")
