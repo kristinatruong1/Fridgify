@@ -1,0 +1,48 @@
+@media only screen
+    and (device-width: 430px) 
+    and (device-height: 932px) 
+    and (-webkit-device-pixel-ratio: 3) {
+    
+
+        * {
+            background-color: #F4FFF4;
+            margin: 0;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .phrase {
+            text-align: center;
+            font-size: 58px;
+            margin-left: 30px;
+            margin-right: 30px;
+            font-family: "Patua One", serif;
+            letter-spacing: 2px;
+            color: #483F3F;
+        }
+
+        .chill {
+            color: #A3B985;
+        }
+
+        .buttonframe {
+            text-align: center;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .sign {
+            width: 50%;
+            height: auto;
+            padding: 42px;
+            border-radius: 45px;
+            background-image: linear-gradient(to right, #A0CEA0 0%, #A0CEA0 60%, #FFF500 100%);
+            opacity: 65%;
+            border: none;
+        }
+
+          
+}
