@@ -1,4 +1,7 @@
+import ScanImage
+
 # take photo/get photo
+items = ScanImage.scan()
 
 # process photo/ image classifcation
 
