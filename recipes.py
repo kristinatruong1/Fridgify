@@ -2,7 +2,6 @@ import pymongo
 from pymongo import MongoClient
 from api import MONGO_URL
 
-
 # connectng db
 client = MongoClient(MONGO_URL)
 db = client.get_database('fridgifyRecipeData')
