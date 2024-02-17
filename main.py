@@ -8,9 +8,10 @@ items = ScanImage.scan()
 # filter items and find recipes
 filtered = recipes.filterFood(items)
 ingredients =  "Your ingredients are " + " ".join(filtered)
-ScanImage.speech(ingredients)
+if (ingredients != "Your ingredients are "):
+    ScanImage.speech(ingredients)
 recipeList = recipes.getRecipes(filtered)
-print(recipes)
+print(recipeList)
 
 # output text 
 # prompt additional ingredients

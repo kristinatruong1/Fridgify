@@ -37,12 +37,17 @@ def filterFood(found):
          found.remove(item)
      return found
 
-def getRecipes(ingredients):
+def getRecipes(items):
     db = client.get_database('fridgifyRecipeData')
     records = db.Recipes
-    
-    pattern = "." + ingredients + "."
-    query = {'ingredients': {'$regex': pattern, '$options': 'i'}}
+    regex_conditions = []
+
+    for ingredient in items:
+        pattern = ".*" + ingredient + ".*"
+        regex_conditions.append({'ingredients': {'$regex': pattern, '$options': 'i'}})
+
+    # takes any recipe with at least one of the ingreidents
+    query = {'$or': regex_conditions}
     recipes = list(records.find(query))
 
     return recipes
