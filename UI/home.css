@@ -1,13 +1,9 @@
-@media only screen
-    and (device-width: 430px) 
-    and (device-height: 932px) 
-    and (-webkit-device-pixel-ratio: 3) {
-    
+@media only screen and (min-width: 844px) and (orientation: portrait) {
 
         * {
             background-color: #F4FFF4;
             margin: 0;
-        }
+        }   
 
         img {
             width: 100%;
@@ -32,16 +28,43 @@
             text-align: center;
             margin: 0 auto;
             display: block;
+            margin-top: 80px;
         }
 
         .sign {
-            width: 50%;
-            height: auto;
-            padding: 42px;
-            border-radius: 45px;
+            width: 70%;
+            height: 150px;
+            padding: 40px;
+            border-radius: 70px;
             background-image: linear-gradient(to right, #A0CEA0 0%, #A0CEA0 60%, #FFF500 100%);
             opacity: 65%;
             border: none;
+            font-size: 102px;
+            color: #F5F5F5;
+            font-family: "Orelega One", serif;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-around;
+            box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .accountsign {
+            text-align: center;
+            font-family: "Oswald", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            color: #6D6363;
+            margin-top: 20px;
+        }
+
+        .logo {
+            color: #6D6363;
+            text-align: center;
+            font-family: "Poller One", serif;
+            position: absolute;
+            bottom: 30px;
+            left: 380px;
+            font-size: 40px;
         }
 
           
