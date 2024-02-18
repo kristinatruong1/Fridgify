@@ -8,13 +8,11 @@ from pymongo import MongoClient
 import api
 from flask import Flask, render_template, Response, url_for, redirect
 from cvlib.object_detection import draw_bbox
+import recipes
 
 vid = Flask(__name__)
 labels = []
 stop = 0
-
-def getLabels():
-    return labels
 
 # speech
 def speech(words):
@@ -64,4 +62,16 @@ def end_video():
 
 @vid.route('/results')
 def results():
+    # filter items and find recipes
+    filtered = recipes.filterFood(labels)
+    ingredients =  "Your ingredients are " + " ".join(filtered)
+    if (ingredients != "Your ingredients are "):
+        speech(ingredients)
+    recipeDict = recipes.getRecipes(filtered)
+    recipeNames = recipeDict[0]
+    recipeIngr = recipeDict[1]
+    recipeInstr = recipeDict[2]
+        
+    #send recipe names to HTML to display
+    print(recipeIngr)
     return render_template('results.html')
