@@ -10,11 +10,46 @@ h1  {
     font-size: 60px;
     margin-left: 2%;
 }
+h2 {
+    font-family: "Orelega One", serif;
+    color: #7ac27d;
+    font-size: 60px;
+    margin-left: 2%;
+}
 
 p.instructions {
 
-    margin-left: 20px;
+    margin-left: 30px;
+    font-family: "Orelega One", serif;
+    font-size: 20px;
+    color: #483F3F;
+
+
 }
 p.ingredients {
-    margin-left: 20px;
+    margin-left: 30px;
+    font-family: "Orelega One", serif;
+    font-size: 20px;
+    color: #483F3F;
+
+
+    
+
+}
+.button {
+    border-radius: 80px;
+    background-color: #7ac27d; 
+    padding: 20px 60px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 255px;
+    margin-top: 240px;
+    font-size: 35px;
+    font-family: "Orelega One", serif;
+
+}
+
+.container {
+    display: inline-block;
 }
