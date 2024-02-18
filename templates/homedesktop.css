@@ -1,0 +1,42 @@
+body {
+    background-image: url('deskbg.png');
+    background-size: cover;
+    background-position: top;
+    font-family: "Patua One", serif;
+    text-align: center;
+}
+
+h1 {
+    position: relative;
+    text-align: center;
+    margin-top: 25%;
+    font-size: 4em;
+}
+
+#signin {
+    position: relative;
+    text-align: center;
+    color: white;
+    font-size: 3em;
+    font-family: "Patua One", serif;
+    padding-top: 2%; padding-bottom: 2%;
+    padding-right: 15%; padding-left: 15%;
+    border-radius: 70px;
+    background-image: linear-gradient(to right, #A0CEA0 0%, #A0CEA0 60%, #FFFFB7 100%);
+    border: none;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+div {
+    font-family: "Oswald", sans-serif;
+    font-size: 1.5em;
+}
+
+a {
+    color: #6D6363;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #6D6363;
+}
