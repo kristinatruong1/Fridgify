@@ -23,6 +23,7 @@ p.instructions {
     font-family: "Orelega One", serif;
     font-size: 20px;
     color: #483F3F;
+    text-align: center;
 
 
 }
@@ -43,13 +44,27 @@ p.ingredients {
     color: white;
     border: none;
     cursor: pointer;
-    margin-left: 255px;
-    margin-top: 160px;
+    margin-left: 40px;
+    margin-top: 80x;
     font-size: 35px;
     font-family: "Orelega One", serif;
 
 }
 
+
 .container {
-    display: inline-block;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+h2#instructions-header {
+        text-align: center;
+}
+
+hr {
+    height: 2px; 
+    background-color: #7ac27d; 
+    margin-bottom: 10px;
+    display: block;
+    max-width: 40%;
 }
