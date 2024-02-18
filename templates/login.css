@@ -1,0 +1,28 @@
+
+@media only screen and (min-width: 844px) and (orientation: portrait) {
+
+
+
+        
+    * {
+        background-color: #FFFFFF;
+        margin: 0;
+    }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .sign {
+            width: 50%;
+            height: auto;
+            padding: 42px;
+            border-radius: 45px;
+            background-image: linear-gradient(to right, #A0CEA0 0%, #A0CEA0 60%, #FFF500 100%);
+            opacity: 65%;
+            border: none;
+        }
+
+
+}

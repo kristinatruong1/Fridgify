@@ -48,6 +48,16 @@ def getRecipes(items):
 
     # takes any recipe with at least one of the ingreidents
     query = {'$or': regex_conditions}
-    recipes = list(records.find(query))
+    recipeDict = []
+    recipeNames = []
+    recipeIngr = []
+    recipeInstr = []
+    for i in records.find(query):
+        recipeNames.append(i["title"])
+        recipeIngr.append(i["ingredients"])
+        recipeInstr.append(i["directions"])
+    recipeDict.append(recipeNames)
+    recipeDict.append(recipeIngr)
+    recipeDict.append(recipeInstr)
+    return recipeDict
 
-    return recipes

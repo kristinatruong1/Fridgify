@@ -1,0 +1,16 @@
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8  offset-lg-2">
+                <h3 class="mt-5">Live Streaming</h3>
+                <img src="{{ url_for('video_feed') }}" width="30%" height="50%">
+            </div>
+        </div>
+        <div class="row2">
+            <form action="{{ url_for('end_video') }}" method="post">
+                <h3>Finished showing your ingredients?</h3>
+                <button type="submit">Next</button>
+            </form>
+        </div>
+    </div>
+</body>
