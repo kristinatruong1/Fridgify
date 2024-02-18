@@ -10,9 +10,9 @@
 <body>
     <h1>{{name}}</h1> 
     <h1>Ingredients</h1>
-    <p style="white-space: pre-line">{{ingr}}</p>
+    <p class="ingredients" style="white-space: pre-line">{{ingr}}</p>
     <h1>Instruction</h1>
-    <p style="white-space: pre-line">{{instr}}</p>
+    <p class="instructions" style="white-space: pre-line">{{instr}}</p>   
     <div class="container">
         <button class="button">Play It Out</button>
         <a href="{{ url_for('recipe_back') }}" >
