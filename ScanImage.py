@@ -49,7 +49,7 @@ def scan():
 def index():
     return render_template('homedesktop.html')
 
-@vid.route('/camera', methods=['POST'])
+@vid.route('/camera')
 def camera():
     return render_template('camera.html')
 
