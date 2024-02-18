@@ -17,10 +17,17 @@
     <h2>Instructions</h2>
     <p class="instructions" style="white-space: pre-line">{{instr}}</p>   
     <div class="container">
-        <button class="button">Play It Out</button>
+        <a href="{{ url_for('next_instr', recipe=name) }}" >
+            <button class="button">Play It Out</button>
+        </a>
         <a href="{{ url_for('recipe_back') }}" >
-            <button class="button">Back to Recipes</button>
+            <button class="button">Back to Recipies</button>
         </a>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </body>
 </html>

@@ -22,9 +22,20 @@ h1 {
     padding-top: 2%; padding-bottom: 2%;
     padding-right: 15%; padding-left: 15%;
     border-radius: 70px;
-    background-image: linear-gradient(to right, #A0CEA0 0%, #A0CEA0 60%, #FFFFB7 100%);
+    background-image: linear-gradient(to left, #A0CEA0 0%, #A0CEA0 60%, #FFFFB7 100%);
     border: none;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    background-size: 300% 100%;
+    transition: all 0.4s ease-in-out;
+}
+
+#signin:focus {
+    outline: none;
+}
+
+#signin:hover {
+    background-position: 100% 0;
+    background-image: linear-gradient(to right, #A0CEA0 0%, #A0CEA0 60%, #FFFFB7 100%);
 }
 
 div {

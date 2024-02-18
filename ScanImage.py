@@ -10,20 +10,23 @@ from flask import Flask, render_template, Response, url_for, redirect, request
 from cvlib.object_detection import draw_bbox
 import recipes
 import html
+import pyttsx3
 
 vid = Flask(__name__)
 labels = []
 global recipeNames 
 global recipeIngr 
 global recipeInstr 
+global instr_list 
+global cur_instr
 stop = 0
 
 # speech
 def speech(words):
-    language = "en"
-    output = gTTS(text=words, lang=language, slow=False)
-    output.save("./sounds/found_items.mp3")
-    playsound("./sounds/found_items.mp3")
+    engine = pyttsx3.init()
+    engine.say(words)
+    engine.runAndWait()
+
 
 # access camera
 def scan():
@@ -62,32 +65,32 @@ def video_feed():
 @vid.route('/end_video', methods=['POST'])
 def end_video():
     stop = 1
-    return redirect(url_for('results')) 
-
-@vid.route('/results')
-def results():
-    # filter items and find recipes
     global recipeNames, recipeIngr, recipeInstr
     filtered = recipes.filterFood(labels)
     ingredients =  "Your ingredients are " + " ".join(filtered)
-    #if (ingredients != "Your ingredients are "):
-        #speech(ingredients)
+    if (ingredients != "Your ingredients are "):
+        speech(ingredients)
     recipeDict = recipes.getRecipes(filtered)
     recipeNames = recipeDict[0]
     recipeIngr = recipeDict[1]
     recipeInstr = recipeDict[2]
-        
+    return redirect(url_for('results')) 
+
+@vid.route('/results')
+def results():
     #send recipe names to HTML to display
     return render_template('results.html', recipe1=recipeNames[0], recipe2=recipeNames[1], recipe3=recipeNames[2], recipe4=recipeNames[3], recipe5=recipeNames[4])
 
 @vid.route('/openR')
 def openR():
+    global cur_instr
     recipe_name = request.args.get('recipe')
+    cur_instr = 0
     return redirect(url_for('fullrecipe', recipe_name=recipe_name)) 
 
 @vid.route('/fullrecipe/<recipe_name>')
 def fullrecipe(recipe_name):
-    global recipeNames, recipeInstr, recipeIngr
+    global recipeNames, recipeInstr, recipeIngr, cur_instr, instr_list
     instr = ""
     ingr = ""
     if (recipe_name == recipeNames[0]):
@@ -114,8 +117,22 @@ def fullrecipe(recipe_name):
     ingr = ingr.replace(']','')
     ingr = ingr.replace('"','')
     ingr = ingr.replace(',','\n\n')
+
+    # set instr list
+    instr_list = instr.split('\n') 
+
     return render_template('ingredients.html',name=recipe_name, instr=instr, ingr=ingr)
 
 @vid.route('/recipe_back')
 def recipe_back():
     return redirect(url_for('results')) 
+
+@vid.route("/next_instr")
+def next_instr():
+    global instr_list, cur_instr
+    recipe_name = request.args.get('recipe')
+    if cur_instr < len(instr_list):
+        text = instr_list[cur_instr]
+        speech(text)
+        cur_instr += 1
+    return redirect(url_for('fullrecipe', recipe_name=recipe_name)) 
