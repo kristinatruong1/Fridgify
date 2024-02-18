@@ -9,6 +9,7 @@ import api
 from flask import Flask, render_template, Response, url_for, redirect, request
 from cvlib.object_detection import draw_bbox
 import recipes
+import html
 
 vid = Flask(__name__)
 labels = []
@@ -108,9 +109,9 @@ def fullrecipe(recipe_name):
     instr = instr.replace('[','')
     instr =instr.replace(']','')
     instr = instr.replace('"','')
-    instr = instr.replace(',','\n')
+    instr = instr.replace(',','\n\n')
     ingr = ingr.replace('[','')
     ingr = ingr.replace(']','')
     ingr = ingr.replace('"','')
-    ingr = ingr.replace(',','\n')
+    ingr = ingr.replace(',','\n\n')
     return render_template('ingredients.html',name=recipe_name, instr=instr, ingr=ingr)
