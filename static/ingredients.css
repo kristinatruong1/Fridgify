@@ -10,3 +10,11 @@ h1  {
     font-size: 60px;
     margin-left: 2%;
 }
+
+p.instructions {
+
+    margin-left: 20px;
+}
+p.ingredients {
+    margin-left: 20px;
+}
