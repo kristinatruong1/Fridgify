@@ -36,3 +36,7 @@ p {
     font-size: 20px;
     top: 5px;
 }
+
+hr {
+    border: 10px black solid;
+}
