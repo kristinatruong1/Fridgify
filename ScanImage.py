@@ -6,15 +6,15 @@ from gtts import gTTS
 from playsound import playsound
 from pymongo import MongoClient
 import api
-from flask import Flask, render_template, Response, url_for, redirect
+from flask import Flask, render_template, Response, url_for, redirect, request
 from cvlib.object_detection import draw_bbox
 import recipes
 
 vid = Flask(__name__)
 labels = []
-recipeNames = []
-recipeIngr = []
-recipeInstr = []
+global recipeNames 
+global recipeIngr 
+global recipeInstr 
 stop = 0
 
 # speech
@@ -66,6 +66,7 @@ def end_video():
 @vid.route('/results')
 def results():
     # filter items and find recipes
+    global recipeNames, recipeIngr, recipeInstr
     filtered = recipes.filterFood(labels)
     ingredients =  "Your ingredients are " + " ".join(filtered)
     #if (ingredients != "Your ingredients are "):
@@ -80,8 +81,36 @@ def results():
 
 @vid.route('/openR')
 def openR():
-    return redirect(url_for('fullrecipe')) 
+    recipe_name = request.args.get('recipe')
+    return redirect(url_for('fullrecipe', recipe_name=recipe_name)) 
 
-@vid.route('/fullrecipe')
-def fullrecipe():
-    return
+@vid.route('/fullrecipe/<recipe_name>')
+def fullrecipe(recipe_name):
+    global recipeNames, recipeInstr, recipeIngr
+    instr = ""
+    ingr = ""
+    if (recipe_name == recipeNames[0]):
+        instr = recipeInstr[0]
+        ingr = recipeIngr[0]
+    elif (recipe_name == recipeNames[1]):
+        instr = recipeInstr[1]
+        ingr = recipeIngr[1]
+    elif (recipe_name == recipeNames[2]):
+        instr = recipeInstr[2]
+        ingr = recipeIngr[2]
+    elif (recipe_name == recipeNames[3]):
+        instr = recipeInstr[3]
+        ingr = recipeIngr[3]
+    else:
+        instr = recipeInstr[4]
+        ingr = recipeIngr[4]
+
+    instr = instr.replace('[','')
+    instr =instr.replace(']','')
+    instr = instr.replace('"','')
+    instr = instr.replace(',','\n')
+    ingr = ingr.replace('[','')
+    ingr = ingr.replace(']','')
+    ingr = ingr.replace('"','')
+    ingr = ingr.replace(',','\n')
+    return render_template('ingredients.html',name=recipe_name, instr=instr, ingr=ingr)

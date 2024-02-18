@@ -1,36 +1,56 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>Fridgify</title>
-    <link rel="stylesheet" href="./static/results.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
+        <title>Fridgify</title>
+        <link rel="stylesheet" href="../static/results.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+    <!--
+    <style>
+        body {
+            background-color: olivedrab;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: "Patua One", serif;
+            font-size: 3em;
+            color: white;
+        }
+
+        button {
+            font-size: 1em;
+            padding-top: 2%; padding-bottom: 2%;
+            padding-left: 5%; padding-right: 5%;
+            border-radius: 20px;
+            background-color:lightgoldenrodyellow;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+    </style>
+    --->
     </head>
 
     <body>
         <h1> RECIPES FOR YOU </h1>
         <div class="items">
-            <img src="resultsback.png"/>
             <div class="result">
-                <a href="{{ url_for('openR') }}" >
+                <a href="{{ url_for('openR', recipe=recipe1) }}" >
                     <button id="signin">{{recipe1}}</button>
-                </a>
-                <a href="{{ url_for('openR') }}" >
+                </a><br><br>
+                <a href="{{ url_for('openR', recipe=recipe2) }}" >
                     <button id="signin">{{recipe2}}</button>
-                </a>
-                <a href="{{ url_for('openR') }}" >
+                </a><br><br>
+                <a href="{{ url_for('openR', recipe=recipe3) }}" >
                     <button id="signin">{{recipe3}}</button>
-                </a>
-                <a href="{{ url_for('openR') }}" >
+                </a><br><br>
+                <a href="{{ url_for('openR', recipe=recipe4) }}" >
                     <button id="signin">{{recipe4}}</button>
-                </a>
-                <a href="{{ url_for('openR') }}" >
+                </a><br><br>
+                <a href="{{ url_for('openR', recipe=recipe5) }}" >
                     <button id="signin">{{recipe5}}</button>
-                </a>
+                </a><br><br>
                 
             </div>
         </div>
