@@ -115,3 +115,7 @@ def fullrecipe(recipe_name):
     ingr = ingr.replace('"','')
     ingr = ingr.replace(',','\n\n')
     return render_template('ingredients.html',name=recipe_name, instr=instr, ingr=ingr)
+
+@vid.route('/recipe_back')
+def recipe_back():
+    return redirect(url_for('results')) 
