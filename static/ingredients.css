@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #F4FFF4;
+    align-items: center;
 }
 
 h1  {
@@ -23,7 +24,6 @@ p.instructions {
     font-family: "Orelega One", serif;
     font-size: 20px;
     color: #483F3F;
-    text-align: center;
 
 
 }
@@ -38,33 +38,37 @@ p.ingredients {
 
 }
 .button {
+    z-index: 2;
     border-radius: 80px;
     background-color: #7ac27d; 
     padding: 20px 60px;
     color: white;
     border: none;
     cursor: pointer;
-    margin-left: 40px;
-    margin-top: 80x;
     font-size: 35px;
     font-family: "Orelega One", serif;
-
+    margin-left: 2%;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
+.button1 {
+    z-index: 2;
+    border-radius: 80px;
+    background-color: #7ac27d; 
+    padding: 20px 60px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 35px;
+    font-family: "Orelega One", serif;
+    margin-left: 2%;
+    position: absolute;
+    top: 110px;
+    right: 20px;
+}
 
 .container {
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-}
-h2#instructions-header {
-        text-align: center;
-}
-
-hr {
-    height: 2px; 
-    background-color: #7ac27d; 
-    margin-bottom: 10px;
-    display: block;
-    max-width: 40%;
+    align-items: center;
 }

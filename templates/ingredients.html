@@ -11,20 +11,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>{{name}}</h1>
+    <h1>{{name}}</h1> 
     <h2>Ingredients</h2>
     <p class="ingredients" style="white-space: pre-line">{{ingr}}</p>
-    <h2 id="instructions-header">Instructions</h2>
-    <div class="line-container">
-        <hr> <!-- Horizontal line -->
-    </div>
+    <h2>Instructions</h2>
     <p class="instructions" style="white-space: pre-line">{{instr}}</p>   
     <div class="container">
         <a href="{{ url_for('next_instr', recipe=name) }}" >
-            <button class="button">Play It Out</button>
+            <button class="button">Play Instruction</button><br><br>
         </a>
         <a href="{{ url_for('recipe_back') }}" >
-            <button class="button">Back to Recipies</button>
+            <button class="button1">Back to Recipes</button>
         </a>
     </div>
     <br>
