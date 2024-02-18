@@ -1,16 +1,53 @@
+<head>
+    <link rel="stylesheet" href="static/camera.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #F4FFF4;
+            text-align: center;
+        }
+
+        button {
+            position: relative;
+            text-align: center;
+            color: white;
+            font-size: 3em;
+            font-family: "Patua One", serif;
+            padding-top: 2%; padding-bottom: 2%;
+            padding-right: 15%; padding-left: 15%;
+            border-radius: 70px;
+            background-image: linear-gradient(to right, #A0CEA0 0%, #A0CEA0 60%, #FFFFB7 100%);
+            border: none;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h3 {
+            font-family: "Patua One", serif;
+            color: #A0CEA0;
+            font-size: 2em;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
 <body>
     <div class="container">
         <div class="row">
             <div class="col-lg-8  offset-lg-2">
                 <h3 class="mt-5">Live Streaming</h3>
-                <img src="{{ url_for('video_feed') }}" width="30%" height="50%">
+                <img src="{{ url_for('video_feed') }}" height="90%" width="auto">
             </div>
         </div>
         <div class="row2">
             <form action="{{ url_for('end_video') }}" method="post">
                 <h3>Finished showing your ingredients?</h3>
-                <button type="submit">Next</button>
+                <button type="submit">Get Recipes!</button>
             </form>
         </div>
+        <br><br>
     </div>
 </body>

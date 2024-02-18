@@ -12,6 +12,9 @@ import recipes
 
 vid = Flask(__name__)
 labels = []
+recipeNames = []
+recipeIngr = []
+recipeInstr = []
 stop = 0
 
 # speech
@@ -65,13 +68,20 @@ def results():
     # filter items and find recipes
     filtered = recipes.filterFood(labels)
     ingredients =  "Your ingredients are " + " ".join(filtered)
-    if (ingredients != "Your ingredients are "):
-        speech(ingredients)
+    #if (ingredients != "Your ingredients are "):
+        #speech(ingredients)
     recipeDict = recipes.getRecipes(filtered)
     recipeNames = recipeDict[0]
     recipeIngr = recipeDict[1]
     recipeInstr = recipeDict[2]
         
     #send recipe names to HTML to display
-    print(recipeIngr)
-    return render_template('results.html')
+    return render_template('results.html', recipe1=recipeNames[0], recipe2=recipeNames[1], recipe3=recipeNames[2], recipe4=recipeNames[3], recipe5=recipeNames[4])
+
+@vid.route('/openR')
+def openR():
+    return redirect(url_for('fullrecipe')) 
+
+@vid.route('/fullrecipe')
+def fullrecipe():
+    return
